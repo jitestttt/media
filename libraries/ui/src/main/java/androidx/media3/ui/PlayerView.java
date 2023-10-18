@@ -1748,7 +1748,7 @@ public class PlayerView extends FrameLayout implements AdViewProvider {
 
     @DoNotInline
     public static void setSurfaceLifecycleToFollowsAttachment(SurfaceView surfaceView) {
-      surfaceView.setSurfaceLifecycle(SurfaceView.SURFACE_LIFECYCLE_FOLLOWS_ATTACHMENT);
+//      surfaceView.setSurfaceLifecycle(SurfaceView.SURFACE_LIFECYCLE_FOLLOWS_ATTACHMENT);
     }
   }
 }

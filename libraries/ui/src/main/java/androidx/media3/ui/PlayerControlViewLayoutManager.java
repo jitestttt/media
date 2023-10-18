@@ -199,6 +199,9 @@ import java.util.List;
             - resources.getDimension(R.dimen.exo_styled_progress_bar_height);
     float translationYForNoBars = resources.getDimension(R.dimen.exo_styled_bottom_bar_height);
 
+//    float translationYForProgressBar = 105;
+//    float translationYForNoBars = 165;
+
     hideMainBarAnimator = new AnimatorSet();
     hideMainBarAnimator.setDuration(DURATION_FOR_HIDING_ANIMATION_MS);
     hideMainBarAnimator.addListener(
@@ -578,16 +581,16 @@ import java.util.List;
             - playerControlView.getPaddingBottom()
             - playerControlView.getPaddingTop();
 
-    int centerControlWidth =
-        getWidthWithMargins(centerControls)
-            - (centerControls != null
-                ? (centerControls.getPaddingLeft() + centerControls.getPaddingRight())
-                : 0);
-    int centerControlHeight =
-        getHeightWithMargins(centerControls)
-            - (centerControls != null
-                ? (centerControls.getPaddingTop() + centerControls.getPaddingBottom())
-                : 0);
+    int centerControlWidth = 0;
+//        getWidthWithMargins(centerControls)
+//            - (centerControls != null
+//                ? (centerControls.getPaddingLeft() + centerControls.getPaddingRight())
+//                : 0);
+    int centerControlHeight = 0;
+//        getHeightWithMargins(centerControls)
+//            - (centerControls != null
+//                ? (centerControls.getPaddingTop() + centerControls.getPaddingBottom())
+//                : 0);
 
     int defaultModeMinimumWidth =
         Math.max(
