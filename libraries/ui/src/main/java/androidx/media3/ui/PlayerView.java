@@ -1977,7 +1977,7 @@ public class PlayerView extends FrameLayout implements AdViewProvider {
   private static class Api34 {
 
     public static void setSurfaceLifecycleToFollowsAttachment(SurfaceView surfaceView) {
-      surfaceView.setSurfaceLifecycle(SurfaceView.SURFACE_LIFECYCLE_FOLLOWS_ATTACHMENT);
+//      surfaceView.setSurfaceLifecycle(SurfaceView.SURFACE_LIFECYCLE_FOLLOWS_ATTACHMENT);
     }
   }
 
