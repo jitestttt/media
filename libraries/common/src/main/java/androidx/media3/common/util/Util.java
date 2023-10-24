@@ -2535,6 +2535,11 @@ public final class Util {
       return C.CONTENT_TYPE_SS;
     }
 
+    //Fix for youku.
+    if (uri.getPath().equals("/playlist/m3u8")) {
+      return C.CONTENT_TYPE_HLS;
+    }
+
     return C.CONTENT_TYPE_OTHER;
   }
 
