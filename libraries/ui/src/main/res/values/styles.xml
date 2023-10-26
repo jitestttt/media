@@ -93,7 +93,7 @@
 
   <style name="ExoStyledControls.TimeText.Separator">
     <item name="android:textColor">@color/exo_white_opacity_70</item>
-    <item name="android:text">·</item>
+    <item name="android:text">/</item>
   </style>
 
   <style name="ExoStyledControls.TimeText.Duration">
