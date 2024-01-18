@@ -17,11 +17,11 @@ project.ext {
     minSdkVersion = 19
     // See https://developer.android.com/training/cars/media/automotive-os#automotive-module
     automotiveMinSdkVersion = 28
-    appTargetSdkVersion = 34
+    appTargetSdkVersion = 33
     // Upgrading this requires [Internal ref: b/193254928] to be fixed, or some
     // additional robolectric config.
     targetSdkVersion = 30
-    compileSdkVersion = 33
+    compileSdkVersion = 34
     dexmakerVersion = '2.28.3'
     // Use the same JUnit version as the Android repo:
     // https://cs.android.com/android/platform/superproject/main/+/main:external/junit/METADATA
