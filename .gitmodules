@@ -1,4 +1,4 @@
 [submodule "libraries/decoder_ffmpeg/src/main/jni/ffmpeg"]
 	path = libraries/decoder_ffmpeg/src/main/jni/ffmpeg
 	url = git@gitlab.com:DLNAGroup/ffmpeg.git
-	branch = 4.2-android-linux
+	branch = 6.0-android
