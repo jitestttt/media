@@ -2536,7 +2536,7 @@ public final class Util {
     }
 
     //Fix for youku.
-    if (uri.getPath().equals("/playlist/m3u8")) {
+    if (uri.getPath().contains("/playlist/m3u8")) {
       return C.CONTENT_TYPE_HLS;
     }
 
