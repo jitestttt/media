@@ -620,7 +620,12 @@ public final class Mp4Extractor implements Extractor, SeekMap {
         }
         if (trackDurationUs > 0 && trackSampleTable.sampleCount > 0) {
           float frameRate = trackSampleTable.sampleCount / (trackDurationUs / 1000000f);
-          formatBuilder.setFrameRate(frameRate);
+          if (frameRate > 30 && frameRate < 32) {
+            //max for amLogic 982: 30.150008201f+;
+            formatBuilder.setFrameRate(30f);
+          } else {
+            formatBuilder.setFrameRate(frameRate);
+          }
         }
       }
 
