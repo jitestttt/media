@@ -65,7 +65,7 @@ FFMPEG_PATH="$(pwd)"
   details of the available decoders, and which formats they support.
 
 ```
-ENABLED_DECODERS=(vorbis opus flac)
+ENABLED_DECODERS=(vorbis opus flac alac ac3 eac3 dca mlp truehd)
 ```
 
 *   Add a link to the FFmpeg source code in the FFmpeg module `jni` directory.
