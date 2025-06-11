@@ -203,7 +203,7 @@ public final class C {
     ENCODING_DTS_HD,
     ENCODING_DOLBY_TRUEHD,
     ENCODING_OPUS,
-    ENCODING_DTS_UHD_P2,
+//    ENCODING_DTS_UHD_P2,
   })
   public @interface Encoding {}
 
@@ -298,8 +298,8 @@ public final class C {
   /** See {@link AudioFormat#ENCODING_DTS_HD}. */
   @UnstableApi public static final int ENCODING_DTS_HD = AudioFormat.ENCODING_DTS_HD;
 
-  /** See {@link AudioFormat#ENCODING_DTS_UHD_P2}. */
-  @UnstableApi public static final int ENCODING_DTS_UHD_P2 = AudioFormat.ENCODING_DTS_UHD_P2;
+//  /** See {@link AudioFormat#ENCODING_DTS_UHD_P2}. */
+//  @UnstableApi public static final int ENCODING_DTS_UHD_P2 = AudioFormat.ENCODING_DTS_UHD_P2;
 
   /** See {@link AudioFormat#ENCODING_DOLBY_TRUEHD}. */
   @UnstableApi public static final int ENCODING_DOLBY_TRUEHD = AudioFormat.ENCODING_DOLBY_TRUEHD;

@@ -2347,8 +2347,8 @@ public final class Util {
         return 30;
       case C.ENCODING_PCM_32BIT:
         return 31;
-      case C.ENCODING_DTS_UHD_P2:
-        return 34;
+//      case C.ENCODING_DTS_UHD_P2:
+//        return 34;
       default:
         return Integer.MAX_VALUE;
     }

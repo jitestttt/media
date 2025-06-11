@@ -83,7 +83,7 @@ public final class AudioCapabilities {
           .put(C.ENCODING_AC3, 6)
           .put(C.ENCODING_AC4, 6)
           .put(C.ENCODING_DTS, 6)
-          .put(C.ENCODING_DTS_UHD_P2, 10)
+//          .put(C.ENCODING_DTS_UHD_P2, 10)
           .put(C.ENCODING_E_AC3_JOC, 6)
           .put(C.ENCODING_E_AC3, 8)
           .put(C.ENCODING_DTS_HD, 8)
@@ -305,7 +305,7 @@ public final class AudioCapabilities {
       // E-AC3 receivers support E-AC3 JOC streams (but decode only the base layer).
       encoding = C.ENCODING_E_AC3;
     } else if ((encoding == C.ENCODING_DTS_HD && !supportsEncoding(C.ENCODING_DTS_HD))
-        || (encoding == C.ENCODING_DTS_UHD_P2 && !supportsEncoding(C.ENCODING_DTS_UHD_P2))) {
+        /*|| (encoding == C.ENCODING_DTS_UHD_P2 && !supportsEncoding(C.ENCODING_DTS_UHD_P2))*/) {
       // DTS receivers support DTS-HD streams (but decode only the core layer).
       encoding = C.ENCODING_DTS;
     }

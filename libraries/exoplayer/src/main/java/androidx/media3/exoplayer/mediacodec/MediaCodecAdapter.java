@@ -58,7 +58,7 @@ public interface MediaCodecAdapter {
         MediaFormat mediaFormat,
         Format format,
         @Nullable MediaCrypto crypto,
-        @Nullable LoudnessCodecController loudnessCodecController) {
+        @Nullable /*LoudnessCodecController*/Object loudnessCodecController) {
       return new Configuration(
           codecInfo, mediaFormat, format, /* surface= */ null, crypto, loudnessCodecController);
     }
@@ -103,7 +103,7 @@ public interface MediaCodecAdapter {
     @Nullable public final MediaCrypto crypto;
 
     /** The {@link LoudnessCodecController} for audio codecs. */
-    @Nullable public final LoudnessCodecController loudnessCodecController;
+    @Nullable public final /*LoudnessCodecController*/Object loudnessCodecController;
 
     private Configuration(
         MediaCodecInfo codecInfo,
@@ -111,7 +111,7 @@ public interface MediaCodecAdapter {
         Format format,
         @Nullable Surface surface,
         @Nullable MediaCrypto crypto,
-        @Nullable LoudnessCodecController loudnessCodecController) {
+        @Nullable /*LoudnessCodecController*/Object loudnessCodecController) {
       this.codecInfo = codecInfo;
       this.mediaFormat = mediaFormat;
       this.format = format;
@@ -293,13 +293,13 @@ public interface MediaCodecAdapter {
   @RequiresApi(23)
   void setOutputSurface(Surface surface);
 
-  /**
-   * Detaches the current output surface.
-   *
-   * @see MediaCodec#detachOutputSurface()
-   */
-  @RequiresApi(35)
-  void detachOutputSurface();
+//  /**
+//   * Detaches the current output surface.
+//   *
+//   * @see MediaCodec#detachOutputSurface()
+//   */
+//  @RequiresApi(35)
+//  void detachOutputSurface();
 
   /**
    * Communicate additional parameter changes to the {@link MediaCodec} instance.

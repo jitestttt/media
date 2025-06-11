@@ -52,11 +52,11 @@ public final class SynchronousMediaCodecAdapter implements MediaCodecAdapter {
         codec = createCodec(configuration);
         TraceUtil.beginSection("configureCodec");
         int flags = 0;
-        if (configuration.surface == null
-            && configuration.codecInfo.detachedSurfaceSupported
-            && Util.SDK_INT >= 35) {
-          flags |= MediaCodec.CONFIGURE_FLAG_DETACHED_SURFACE;
-        }
+//        if (configuration.surface == null
+//            && configuration.codecInfo.detachedSurfaceSupported
+//            && Util.SDK_INT >= 35) {
+//          flags |= MediaCodec.CONFIGURE_FLAG_DETACHED_SURFACE;
+//        }
         codec.configure(
             configuration.mediaFormat, configuration.surface, configuration.crypto, flags);
         TraceUtil.endSection();
@@ -84,15 +84,15 @@ public final class SynchronousMediaCodecAdapter implements MediaCodecAdapter {
   }
 
   private final MediaCodec codec;
-  @Nullable private final LoudnessCodecController loudnessCodecController;
+  @Nullable private final /*LoudnessCodecController*/Object loudnessCodecController;
 
   private SynchronousMediaCodecAdapter(
-      MediaCodec mediaCodec, @Nullable LoudnessCodecController loudnessCodecController) {
+      MediaCodec mediaCodec, @Nullable /*LoudnessCodecController*/Object loudnessCodecController) {
     this.codec = mediaCodec;
     this.loudnessCodecController = loudnessCodecController;
-    if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
-      loudnessCodecController.addMediaCodec(codec);
-    }
+//    if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
+//      loudnessCodecController.addMediaCodec(codec);
+//    }
   }
 
   @Override
@@ -171,9 +171,9 @@ public final class SynchronousMediaCodecAdapter implements MediaCodecAdapter {
         codec.stop();
       }
     } finally {
-      if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
-        loudnessCodecController.removeMediaCodec(codec);
-      }
+//      if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
+//        loudnessCodecController.removeMediaCodec(codec);
+//      }
       codec.release();
     }
   }
@@ -194,11 +194,11 @@ public final class SynchronousMediaCodecAdapter implements MediaCodecAdapter {
     codec.setOutputSurface(surface);
   }
 
-  @RequiresApi(35)
-  @Override
-  public void detachOutputSurface() {
-    codec.detachOutputSurface();
-  }
+//  @RequiresApi(35)
+//  @Override
+//  public void detachOutputSurface() {
+//    codec.detachOutputSurface();
+//  }
 
   @Override
   public void setParameters(Bundle params) {

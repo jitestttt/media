@@ -58,7 +58,7 @@ import androidx.media3.exoplayer.RendererCapabilities;
 import androidx.media3.exoplayer.audio.AudioRendererEventListener.EventDispatcher;
 import androidx.media3.exoplayer.audio.AudioSink.InitializationException;
 import androidx.media3.exoplayer.audio.AudioSink.WriteException;
-import androidx.media3.exoplayer.mediacodec.LoudnessCodecController;
+//import androidx.media3.exoplayer.mediacodec.LoudnessCodecController;
 import androidx.media3.exoplayer.mediacodec.MediaCodecAdapter;
 import androidx.media3.exoplayer.mediacodec.MediaCodecInfo;
 import androidx.media3.exoplayer.mediacodec.MediaCodecRenderer;
@@ -108,7 +108,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
   private final Context context;
   private final EventDispatcher eventDispatcher;
   private final AudioSink audioSink;
-  @Nullable private final LoudnessCodecController loudnessCodecController;
+  @Nullable private final /*LoudnessCodecController*/Object loudnessCodecController;
 
   private int codecMaxInputSize;
   private boolean codecNeedsDiscardChannelsWorkaround;
@@ -262,7 +262,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
         eventHandler,
         eventListener,
         audioSink,
-        Util.SDK_INT >= 35 ? new LoudnessCodecController() : null);
+        /*Util.SDK_INT >= 35 ? new LoudnessCodecController() : */null);
   }
 
   /**
@@ -290,7 +290,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
       @Nullable Handler eventHandler,
       @Nullable AudioRendererEventListener eventListener,
       AudioSink audioSink,
-      @Nullable LoudnessCodecController loudnessCodecController) {
+      @Nullable /*LoudnessCodecController*/Object loudnessCodecController) {
     super(
         C.TRACK_TYPE_AUDIO,
         codecAdapterFactory,
@@ -731,9 +731,9 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
   @Override
   protected void onRelease() {
     audioSink.release();
-    if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
-      loudnessCodecController.release();
-    }
+//    if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
+//      loudnessCodecController.release();
+//    }
   }
 
   @Override
@@ -1014,17 +1014,17 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
     if (Util.SDK_INT >= 32) {
       mediaFormat.setInteger(MediaFormat.KEY_MAX_OUTPUT_CHANNEL_COUNT, 99);
     }
-    if (Util.SDK_INT >= 35) {
-      mediaFormat.setInteger(MediaFormat.KEY_IMPORTANCE, max(0, -rendererPriority));
-    }
+//    if (Util.SDK_INT >= 35) {
+//      mediaFormat.setInteger(MediaFormat.KEY_IMPORTANCE, max(0, -rendererPriority));
+//    }
     return mediaFormat;
   }
 
   private void setAudioSessionId(int audioSessionId) {
     audioSink.setAudioSessionId(audioSessionId);
-    if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
-      loudnessCodecController.setAudioSessionId(audioSessionId);
-    }
+//    if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
+//      loudnessCodecController.setAudioSessionId(audioSessionId);
+//    }
   }
 
   private void updateCodecImportance() {
@@ -1033,11 +1033,11 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
       // If codec is null, then the importance will be set when initializing the codec.
       return;
     }
-    if (Util.SDK_INT >= 35) {
-      Bundle codecParameters = new Bundle();
-      codecParameters.putInt(MediaFormat.KEY_IMPORTANCE, max(0, -rendererPriority));
-      codec.setParameters(codecParameters);
-    }
+//    if (Util.SDK_INT >= 35) {
+//      Bundle codecParameters = new Bundle();
+//      codecParameters.putInt(MediaFormat.KEY_IMPORTANCE, max(0, -rendererPriority));
+//      codec.setParameters(codecParameters);
+//    }
   }
 
   private void updateCurrentPosition() {

@@ -127,11 +127,11 @@ import java.nio.ByteBuffer;
                 bufferEnqueuer,
                 configuration.loudnessCodecController);
         TraceUtil.endSection();
-        if (configuration.surface == null
-            && configuration.codecInfo.detachedSurfaceSupported
-            && Util.SDK_INT >= 35) {
-          flags |= MediaCodec.CONFIGURE_FLAG_DETACHED_SURFACE;
-        }
+//        if (configuration.surface == null
+//            && configuration.codecInfo.detachedSurfaceSupported
+//            && Util.SDK_INT >= 35) {
+//          flags |= MediaCodec.CONFIGURE_FLAG_DETACHED_SURFACE;
+//        }
         codecAdapter.initialize(
             configuration.mediaFormat, configuration.surface, configuration.crypto, flags);
         return codecAdapter;
@@ -168,7 +168,7 @@ import java.nio.ByteBuffer;
   private final MediaCodec codec;
   private final AsynchronousMediaCodecCallback asynchronousMediaCodecCallback;
   private final MediaCodecBufferEnqueuer bufferEnqueuer;
-  @Nullable private final LoudnessCodecController loudnessCodecController;
+  @Nullable private final /*LoudnessCodecController*/Object loudnessCodecController;
 
   private boolean codecReleased;
   private @State int state;
@@ -177,7 +177,7 @@ import java.nio.ByteBuffer;
       MediaCodec codec,
       HandlerThread callbackThread,
       MediaCodecBufferEnqueuer bufferEnqueuer,
-      @Nullable LoudnessCodecController loudnessCodecController) {
+      @Nullable /*LoudnessCodecController*/Object loudnessCodecController) {
     this.codec = codec;
     this.asynchronousMediaCodecCallback = new AsynchronousMediaCodecCallback(callbackThread);
     this.bufferEnqueuer = bufferEnqueuer;
@@ -198,9 +198,9 @@ import java.nio.ByteBuffer;
     TraceUtil.beginSection("startCodec");
     codec.start();
     TraceUtil.endSection();
-    if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
-      loudnessCodecController.addMediaCodec(codec);
-    }
+//    if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
+//      loudnessCodecController.addMediaCodec(codec);
+//    }
     state = STATE_INITIALIZED;
   }
 
@@ -293,9 +293,9 @@ import java.nio.ByteBuffer;
             codec.stop();
           }
         } finally {
-          if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
-            loudnessCodecController.removeMediaCodec(codec);
-          }
+//          if (Util.SDK_INT >= 35 && loudnessCodecController != null) {
+//            loudnessCodecController.removeMediaCodec(codec);
+//          }
           codec.release();
           codecReleased = true;
         }
@@ -323,11 +323,11 @@ import java.nio.ByteBuffer;
     codec.setOutputSurface(surface);
   }
 
-  @RequiresApi(35)
-  @Override
-  public void detachOutputSurface() {
-    codec.detachOutputSurface();
-  }
+//  @RequiresApi(35)
+//  @Override
+//  public void detachOutputSurface() {
+//    codec.detachOutputSurface();
+//  }
 
   @Override
   public void setParameters(Bundle params) {
